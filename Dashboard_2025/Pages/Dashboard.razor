@@ -1,0 +1,66 @@
+﻿@page "/"
+@using Dashboard_2025.Services
+@inject NetworkTablesService NetworkTablesService
+
+<FluentThemeProvider>
+    <FluentCard>
+        <h2>FRC Driver Dashboard</h2>
+
+        <FluentDivider />
+
+        <div class="grid-container">
+            <!-- Drive Speed -->
+            <FluentCard class="card">
+                <h3>Drive Speed</h3>
+                <p>@driveSpeed m/s</p>
+            </FluentCard>
+
+            <!-- Gyro Angle -->
+            <FluentCard class="card">
+                <h3>Gyro Angle</h3>
+                <p>@gyroAngle°</p>
+            </FluentCard>
+
+            <!-- Battery Voltage -->
+            <FluentCard class="card">
+                <h3>Battery Voltage</h3>
+                <p>@batteryVoltage V</p>
+            </FluentCard>
+
+            <!-- Robot Connection Status -->
+            <FluentCard class="card">
+                <h3>Robot Status</h3>
+                <p>@(isConnected ? "Connected ✅" : "Disconnected ❌")</p>
+            </FluentCard>
+        </div>
+
+        <FluentDivider />
+
+        <FluentButton OnClick="RefreshData">Refresh Data</FluentButton>
+    </FluentCard>
+</FluentThemeProvider>
+
+@code {
+    private double driveSpeed = 0.0;
+    private double gyroAngle = 0.0;
+    private double batteryVoltage = 0.0;
+    private bool isConnected = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        while (true)
+        {
+            RefreshData();
+            StateHasChanged();
+            await Task.Delay(20); // Update every 100ms
+        }
+    }
+
+    private void RefreshData()
+    {
+        driveSpeed = NetworkTablesService.GetNumber("DriveSpeed", 0.0);
+        gyroAngle = NetworkTablesService.GetNumber("GyroAngle", 0.0);
+        batteryVoltage = NetworkTablesService.GetNumber("BatteryVoltage", 12.0);
+        isConnected = NetworkTablesService.IsConnected();
+    }
+}

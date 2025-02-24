@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>WPILibNewCommands</AssemblyName>
+    <RootNamespace>WPILib</RootNamespace>
+    <NoWarn>1591;CA1401</NoWarn>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>8.0</AnalysisLevel>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\hal\hal.csproj" />
+    <ProjectReference Include="..\wpimath\wpimath.csproj" />
+    <ProjectReference Include="..\ntcore\ntcore.csproj" />
+    <ProjectReference Include="..\wpiutil\wpiutil.csproj" />
+  </ItemGroup>
+
+</Project>

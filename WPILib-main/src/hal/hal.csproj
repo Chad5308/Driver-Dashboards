@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>WPIHal</RootNamespace>
+    <AssemblyName>FRC.WPIHal</AssemblyName>
+    <NoWarn>1591;CA1401;1570</NoWarn>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>8.0</AnalysisLevel>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\wpiutil\wpiutil.csproj" />
+    <ProjectReference Include="..\wpinet\wpinet.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FRC.WPIHal.runtime" Version="2025.1.1-beta-1-127-gd1de766" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>WPINet</RootNamespace>
+    <AssemblyName>FRC.WPINet</AssemblyName>
+    <NoWarn>1591;CA1401</NoWarn>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>8.0</AnalysisLevel>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\wpiutil\wpiutil.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FRC.WPINet.runtime" Version="2025.1.1-beta-1-127-gd1de766" />
+  </ItemGroup>
+
+</Project>
